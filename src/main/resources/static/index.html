@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hum - Selenium BlackJack</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cards.css"/>
+    <script src="js/sockjs-0.3.4.js"></script>
+    <script src="js/game.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body onload="disconnect()">
+<div>
+    <div id="connect-container">
+        <!-- Connect/Disconnect buttons -->
+        <div>
+            Connection:
+            <br/>
+            <button id="connect" onclick="connect();">
+                Connect
+            </button>
+            <button id="disconnect" disabled="disabled" onclick="disconnect();">
+                Disconnect
+            </button>
+        </div>
+        <!-- Game options -->
+        <div id="game-container">
+            Game options:
+            <br/>
+            <button id="stay" enabled="enabled" onclick="game_option('STAY');">
+                Stay
+            </button>
+            <button id="hit" enabled="enabled" onclick="game_option('HIT');">
+                Hit
+            </button>
+            <button id="split" disabled="disabled" onclick="game_option('SPLIT');">
+                Split
+            </button>
+            <button id="shutdown" enabled="enabled" onclick="shutdown();">Draw</button>
+        </div>
+        <!--
+        <div>
+            <textarea id="message" style="width: 350px">Here is a message!</textarea>
+        </div>
+        <div>
+            <button id="echo" onclick="echo();" disabled="disabled">Echo message</button>
+        </div>
+        -->
+
+        <!-- admin options -->
+        <div id="admin-container2" class="container">
+            Select card index to play:
+            <br/>
+            <input id="card-to-play" placeholder="Select card index to play" maxlength="1" size="15" enabled="enabled"
+                   value="1">
+            Administrative:
+            <br/>
+            <input id="numberPlayers" placeholder="Number of players" maxlength="1" size="15" disabled="disabled"
+                   value="1">
+            Add card (for testing):
+            <br/>
+            <input id="card-to-add" placeholder="Add card (for testing)" maxlength="3" size="15" enabled="enabled"
+                   value="KH">
+            TOP CARD (for testing):
+            <br/>
+            <input id="top-card" placeholder="Add card (for testing)" maxlength="3" size="15" enabled="enabled"
+                   value="KH">
+        </div>
+        <div id="admin-container">
+            <button id="open" disabled="disabled" onclick="acceptOthers();">
+                Open lobby
+            </button>
+            <button id="play" enabled="enabled" onclick="removeAndPlayCard();">
+                Play
+            </button>
+            <button id="start" enabled="enabled" onclick="start();">
+                Start game
+            </button>
+            <button id="add" enabled="enabled" onclick="getCard();">
+                Add
+            </button>
+            <button id="top" enabled="enabled" onclick="topCard();">
+                TOP
+            </button>
+        </div>
+    </div>
+    <div id="console-container">
+        <label id="consoleText" for="console">Console</label>
+
+        <div id="console"></div>
+        <label id="yourHandText" for="playerHand">Your Hand</label>
+
+        <div id="playerHand" class="playingCards fourColours">
+            <ul id="playerHandCards" class="table">
+                <li>
+                    <div class="card rank-7 spades" rank="7" suit="spades">
+                        <span class="rank">7</span>
+                        <span class="suit">&spades;</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="card rank-7 spades">
+                        <span class="rank">7</span>
+                        <span class="suit">&spades;</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="card rank-7 spades">
+                        <span class="rank">7</span>
+                        <span class="suit">&spades;</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
